@@ -1,33 +1,192 @@
 @import "../../scss/variables";
 
+$theme-colors: (
+  primary: red,
+);
+
 .pomodoro {
   position: relative;
 }
 
+//pomodoro
 .pomodoro-container {
-  max-width: 480px;
-  background-color: $pomodoro;
+  max-width: 480px !important;
   height: 300px;
   margin-top: 200px;
+  background-color: $pomodoro;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+    0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+    0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
 
   & .row {
     padding: 15px;
   }
 
-  & .pomodoro-field {
-    color: $white;
-    background: red;
-    margin: 2px;
+  & #pomodoro {
+    background: $pomodoro-field;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22);
   }
 
-  & .pomodoro-timer h1 {
+  & p {
+    color: $white;
+    padding: 5px;
+    margin: 1px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  & h1 {
     color: $white;
     font-size: 6rem;
   }
 
-  & .pomodoro-btn {
+  & button {
     width: 160px;
     height: 50px;
-    background: blueviolet;
+    font-size: 1.3rem;
+    color: $pomodoro;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+
+    &:hover {
+      color: $pomodoro;
+    }
+
+    &:focus {
+      color: $pomodoro;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+    }
+  }
+}
+
+//short-break
+.short-break-container {
+  max-width: 480px !important;
+  height: 300px;
+  margin-top: 200px;
+  background-color: $short-break;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+    0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+    0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+
+  & .row {
+    padding: 15px;
+  }
+
+  & #short-break {
+    background: $short-break-field;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22);
+  }
+
+  & p {
+    color: $white;
+    padding: 5px;
+    margin: 1px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  & h1 {
+    color: $white;
+    font-size: 6rem;
+  }
+
+  & button {
+    width: 160px;
+    height: 50px;
+    font-size: 1.3rem;
+    color: $short-break;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+
+    &:hover {
+      color: $short-break;
+    }
+
+    &:focus {
+      color: $short-break;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+    }
+  }
+}
+
+//long-break
+.long-break-container {
+  max-width: 480px !important;
+  height: 300px;
+  margin-top: 200px;
+  background-color: $long-break;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+    0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+    0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+
+  & .row {
+    padding: 15px;
+  }
+
+  & #long-break {
+    background: $long-break-field;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22);
+  }
+
+  & p {
+    color: $white;
+    padding: 5px;
+    margin: 1px;
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22);
+    }
+  }
+
+  & h1 {
+    color: $white;
+    font-size: 6rem;
+  }
+
+  & button {
+    width: 160px;
+    height: 50px;
+    font-size: 1.3rem;
+    color: $long-break;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+      0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+      0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+
+    &:hover {
+      color: $long-break;
+    }
+
+    &:focus {
+      color: $long-break;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
+        0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
+        0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
+    }
   }
 }
