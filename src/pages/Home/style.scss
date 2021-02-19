@@ -1,0 +1,16 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.home {
+  position: relative;
+  height: calc(100vh - 100px);
+
+  & .home-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+    @include btn-animate;
+  }
+}

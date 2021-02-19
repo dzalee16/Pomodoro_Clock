@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.scss";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Pomodoro from "./pages/Pomodoro";
+import Home from "./pages/Home";
 
-function App() {
+/*Moze da inportujem ovako css za bootstrap u svakom folderu gde ga koristim ili da ga inportujem u index.html
+sa link i script-ama za react-bootstrap*/
+// import "bootstrap/dist/css/bootstrap.min.css";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Header />
+          <Home />
+          <Footer />
+        </Route>
+        <Route exact path="/pomodoro-clock">
+          <Header />
+          <Pomodoro />
+          <Footer />
+        </Route>
+      </Switch>
+    </Router>
   );
-}
+};
 
 export default App;

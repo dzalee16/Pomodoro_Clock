@@ -1,0 +1,33 @@
+@import "../../scss/variables";
+
+.pomodoro {
+  position: relative;
+}
+
+.pomodoro-container {
+  max-width: 480px;
+  background-color: $pomodoro;
+  height: 300px;
+  margin-top: 200px;
+
+  & .row {
+    padding: 15px;
+  }
+
+  & .pomodoro-field {
+    color: $white;
+    background: red;
+    margin: 2px;
+  }
+
+  & .pomodoro-timer h1 {
+    color: $white;
+    font-size: 6rem;
+  }
+
+  & .pomodoro-btn {
+    width: 160px;
+    height: 50px;
+    background: blueviolet;
+  }
+}
