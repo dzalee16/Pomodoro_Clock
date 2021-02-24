@@ -10,7 +10,7 @@ const Home = () => {
         <Row>
           <Col>
             <Link to="/pomodoro-clock">
-              <Button className="home-btn">Start Pomodoro Clock</Button>
+              <Button className="home-btn">Go to Pomodoro Clock</Button>
             </Link>
           </Col>
         </Row>
