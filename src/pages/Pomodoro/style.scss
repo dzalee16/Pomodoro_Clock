@@ -14,6 +14,7 @@ $theme-colors: (
   height: 300px;
   margin-top: 200px;
   background-color: $pomodoro;
+  border-radius: 40px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
     0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
     0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
@@ -24,6 +25,7 @@ $theme-colors: (
 
   & #pomodoro {
     background: $pomodoro-field;
+    border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22);
@@ -36,6 +38,7 @@ $theme-colors: (
 
     &:hover {
       cursor: pointer;
+      border-radius: 10px;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
         0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
         0 16px 16px rgba(0, 0, 0, 0.22);
@@ -52,6 +55,7 @@ $theme-colors: (
     height: 50px;
     font-size: 1.3rem;
     color: $pomodoro;
+    border-radius: 40px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
@@ -74,6 +78,7 @@ $theme-colors: (
   max-width: 480px !important;
   height: 300px;
   margin-top: 200px;
+  border-radius: 40px;
   background-color: $short-break;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
     0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
@@ -85,6 +90,7 @@ $theme-colors: (
 
   & #short-break {
     background: $short-break-field;
+    border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22);
@@ -97,6 +103,7 @@ $theme-colors: (
 
     &:hover {
       cursor: pointer;
+      border-radius: 10px;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
         0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
         0 16px 16px rgba(0, 0, 0, 0.22);
@@ -113,6 +120,7 @@ $theme-colors: (
     height: 50px;
     font-size: 1.3rem;
     color: $short-break;
+    border-radius: 40px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);
@@ -135,6 +143,7 @@ $theme-colors: (
   max-width: 480px !important;
   height: 300px;
   margin-top: 200px;
+  border-radius: 40px;
   background-color: $long-break;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
     0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
@@ -146,6 +155,7 @@ $theme-colors: (
 
   & #long-break {
     background: $long-break-field;
+    border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22);
@@ -158,6 +168,7 @@ $theme-colors: (
 
     &:hover {
       cursor: pointer;
+      border-radius: 10px;
       box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
         0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
         0 16px 16px rgba(0, 0, 0, 0.22);
@@ -174,6 +185,7 @@ $theme-colors: (
     height: 50px;
     font-size: 1.3rem;
     color: $long-break;
+    border-radius: 40px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.22), 0 2px 2px rgba(0, 0, 0, 0.22),
       0 4px 4px rgba(58, 40, 40, 0.22), 0 8px 8px rgba(0, 0, 0, 0.22),
       0 16px 16px rgba(0, 0, 0, 0.22), 0 18px 18px rgba(0, 0, 0, 0.22);

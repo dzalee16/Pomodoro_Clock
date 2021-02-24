@@ -9,14 +9,13 @@ const Pomodoro = () => {
   const session = useContext(SessionContext);
 
   const [timeLeft, setTimeLeft] = useState(session.pomodoroLength);
-  const [bgColor, setBgColor] = useState("pomodoro-container");
+  const [sessionField, setSessionField] = useState("pomodoro-container");
   const [timerId, setTimerId] = useState(null);
+  const [sessionType, setSessionType] = useState("pomodoroSession");
+  const [counter, setCounter] = useState(0);
 
+  //change start - stop button
   const isStarted = timerId !== null;
-
-  useEffect(() => {
-    console.log(timerId);
-  }, [timerId]);
 
   const handleStartStopTimer = () => {
     if (isStarted) {
@@ -30,54 +29,73 @@ const Pomodoro = () => {
             return newTimeLeft;
           }
         });
-      }, 10);
+      }, 1000);
       setTimerId(newTimerId);
     }
   };
 
   useEffect(() => {
-    console.log(timeLeft);
+    console.log(sessionType);
+  }, [sessionType]);
+
+  useEffect(() => {
+    console.log(counter);
+  }, [counter]);
+
+  useEffect(() => {
     if (timeLeft === 0) {
       clearInterval(timerId);
       setTimerId(null);
+      if (sessionType === "pomodoroSession") {
+        setCounter((prevState) => {
+          const newCounter = prevState + 1;
+          if (newCounter === 4) {
+            setTimeLeft(session.longBreakLength);
+            setSessionField("long-break-container");
+            setCounter(0);
+          }
+          return newCounter;
+        });
+        setSessionType("shortBreakSession");
+        setTimeLeft(session.shortBreakLength);
+        setSessionField("short-break-container");
+      } else if (sessionType === "shortBreakSession") {
+        setSessionType("pomodoroSession");
+        setTimeLeft(session.pomodoroLength);
+        setSessionField("pomodoro-container");
+      }
     }
   }, [timeLeft]);
 
-  const changeBgColor = (e) => {
+  const changesessionField = (e) => {
     if (e.target.id === "pomodoro") {
-      console.log(e.target);
-      setBgColor("pomodoro-container");
-      console.log("1500");
+      setSessionField("pomodoro-container");
       setTimeLeft(session.pomodoroLength);
     } else if (e.target.id === "short-break") {
-      console.log(e.target);
-      setBgColor("short-break-container");
-      console.log("300");
+      setSessionField("short-break-container");
       setTimeLeft(session.shortBreakLength);
     } else if (e.target.id === "long-break") {
-      console.log(e.target);
-      setBgColor("long-break-container");
-      console.log("900");
+      setSessionField("long-break-container");
       setTimeLeft(session.longBreakLength);
     }
   };
 
   return (
     <main className="pomodoro">
-      <Container className={bgColor}>
+      <Container className={sessionField}>
         <Row className="d-flex justify-content-center">
           <Col className="pomodoro-field" xs="a">
-            <p id="pomodoro" onClick={changeBgColor}>
+            <p id="pomodoro" onClick={changesessionField}>
               Pomodoro
             </p>
           </Col>
           <Col className="pomodoro-field" xs="a">
-            <p id="short-break" onClick={changeBgColor}>
+            <p id="short-break" onClick={changesessionField}>
               Short Break
             </p>
           </Col>
           <Col className="pomodoro-field" xs="a">
-            <p id="long-break" onClick={changeBgColor}>
+            <p id="long-break" onClick={changesessionField}>
               Long Break
             </p>
           </Col>
