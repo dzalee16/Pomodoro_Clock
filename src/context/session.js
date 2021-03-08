@@ -1,16 +1,26 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 export const SessionContext = createContext();
 
 const SessionContextProvider = ({ children }) => {
-  const session = {
-    pomodoroLength: 1500,
-    shortBreakLength: 300,
-    longBreakLength: 900,
-  };
+  const [pomodoroLength, setPomodoroLength] = useState(25);
+  const [shortBreakLength, setShortBreakLength] = useState(5);
+  const [longBreakLength, setLongBreakLength] = useState(15);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <SessionContext.Provider value={session}>
+    <SessionContext.Provider
+      value={{
+        isOpen,
+        setIsOpen,
+        pomodoroLength,
+        setPomodoroLength,
+        shortBreakLength,
+        setShortBreakLength,
+        longBreakLength,
+        setLongBreakLength,
+      }}
+    >
       {children}
     </SessionContext.Provider>
   );

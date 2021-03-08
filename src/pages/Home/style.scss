@@ -6,11 +6,12 @@
   height: calc(100vh - 100px);
 
   & .home-btn {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -100px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 350px;
+    display: flex;
+    justify-content: center;
     @include btn-animate;
     color: $react-bg-color;
     font-size: 1.4rem;

@@ -2,29 +2,69 @@
 
 header {
   width: 100%;
-  height: 54px;
+  height: 74px;
   background: $blue-heavy;
 
   & .navbar {
     width: 90%;
     margin: auto;
+    position: relative;
 
-    & span {
-      color: $white !important;
+    & .navbar-brand {
+      & img {
+        width: 50px;
+      }
     }
 
-    .navbar-nav > .nav-item {
-      color: $white;
-      padding: 5px;
-
-      & a {
-        text-decoration: none;
+    & .navbar-nav {
+      & button {
+        background-color: $blue-middle;
         color: $white;
+        padding: 5px;
+        width: 100px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        box-shadow: 0 1px 1px rgba(255, 255, 255, 0.32),
+          0 2px 2px rgba(255, 255, 255, 0.32),
+          0 4px 4px rgba(255, 255, 255, 0.22),
+          0 6px 6px rgba(255, 255, 255, 0.22),
+          0 8px 8px rgba(255, 255, 255, 0.22);
+        // 0 18px 18px rgba(255, 255, 255, 0.22);
+
+        &:hover {
+          transform: scale(1.1);
+        }
       }
 
-      &:hover {
-        cursor: pointer;
-        border-bottom: 1px solid $react-logo-color;
+      & .dropdown {
+        position: absolute;
+
+        top: 100%;
+        left: 50%;
+        margin-top: 100px;
+        margin-left: -200px;
+
+        & form {
+          border: 1px solid $blue-middle;
+          padding: 10px;
+          border-radius: 30px;
+          height: 350px;
+          width: 400px;
+          background: $blue-heavy;
+          color: $white;
+          display: flex;
+          flex-direction: column;
+
+          & input {
+            padding: 8px;
+            border-radius: 30px;
+          }
+
+          & label {
+            padding: 8px;
+          }
+        }
       }
     }
   }

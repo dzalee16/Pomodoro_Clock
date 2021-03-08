@@ -1,18 +1,94 @@
-import React from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Logo from "../../assets/pomodoro.jpeg";
+import { SessionContext } from "../../context/session";
+import moment from "moment";
+import momentDurationFormat from "moment-duration-format";
 import "./style.scss";
 
+momentDurationFormat(moment);
+
 const Header = () => {
+  const dropdownRef = useRef();
+
+  const { isOpen } = useContext(SessionContext);
+  const { setIsOpen } = useContext(SessionContext);
+  const {
+    pomodoroLength,
+    setPomodoroLength,
+    shortBreakLength,
+    setShortBreakLength,
+    longBreakLength,
+    setLongBreakLength,
+  } = useContext(SessionContext);
+
+  useEffect(() => {
+    const handleOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("click", handleOutside);
+
+    return () => {
+      document.addEventListener("click", handleOutside);
+    };
+  }, [setIsOpen, dropdownRef]);
+
+  // useEffect(() => {
+  //   console.log(isOpen);
+  // }, [isOpen]);
+
+  // useEffect(() => {
+  //   console.log(pomodoroLength);
+  // }, [pomodoroLength]);
+
   return (
     <header>
       <Navbar className="navbar">
-        <Navbar.Brand>Pomodoro Clock</Navbar.Brand>
-        <Nav className="ml-auto">
-          <Nav.Item>
-            <Link to="/">Home</Link>
-          </Nav.Item>
-          <Nav.Item>Settings</Nav.Item>
+        <Navbar.Brand>
+          <Link to="/">
+            <img src={Logo} alt="logo" />
+          </Link>
+        </Navbar.Brand>
+        <Nav className="ml-auto" ref={dropdownRef}>
+          <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
+            Settings
+          </button>
+          {isOpen && (
+            <div className="dropdown">
+              <form>
+                <label>Pomodoro</label>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  max="60"
+                  onChange={(e) => setPomodoroLength(Number(e.target.value))}
+                  value={pomodoroLength}
+                />
+                <label>Short break</label>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  max="15"
+                  onChange={(e) => setShortBreakLength(Number(e.target.value))}
+                  value={shortBreakLength}
+                />
+                <label>Long break</label>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  max="30"
+                  onChange={(e) => setLongBreakLength(Number(e.target.value))}
+                  value={longBreakLength}
+                />
+              </form>
+            </div>
+          )}
         </Nav>
       </Navbar>
     </header>
