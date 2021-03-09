@@ -6,6 +6,11 @@ const SessionContextProvider = ({ children }) => {
   const [pomodoroLength, setPomodoroLength] = useState(25);
   const [shortBreakLength, setShortBreakLength] = useState(5);
   const [longBreakLength, setLongBreakLength] = useState(15);
+  const [time, setTime] = useState({
+    pomodoroLength: pomodoroLength,
+    shortBreakLength: shortBreakLength,
+    longBreakLength: longBreakLength,
+  });
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -19,6 +24,8 @@ const SessionContextProvider = ({ children }) => {
         setShortBreakLength,
         longBreakLength,
         setLongBreakLength,
+        setTime,
+        time,
       }}
     >
       {children}

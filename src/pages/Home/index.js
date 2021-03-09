@@ -9,6 +9,11 @@ const Home = () => {
       <Container fluid>
         <Row>
           <Col>
+            <h1 className="text-center">Pomodoro Clock</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <Link to="/pomodoro-clock">
               <Button className="home-btn">Go to Pomodoro Clock</Button>
             </Link>

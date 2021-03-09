@@ -30,7 +30,6 @@ header {
           0 4px 4px rgba(255, 255, 255, 0.22),
           0 6px 6px rgba(255, 255, 255, 0.22),
           0 8px 8px rgba(255, 255, 255, 0.22);
-        // 0 18px 18px rgba(255, 255, 255, 0.22);
 
         &:hover {
           transform: scale(1.1);
@@ -49,20 +48,57 @@ header {
           border: 1px solid $blue-middle;
           padding: 10px;
           border-radius: 30px;
-          height: 350px;
+          height: 420px;
           width: 400px;
           background: $blue-heavy;
           color: $white;
           display: flex;
           flex-direction: column;
 
+          .isOpenFalse {
+            width: 40px;
+            align-self: flex-end;
+            border-radius: 20px;
+            background-color: red;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: none;
+          }
+
           & input {
             padding: 8px;
             border-radius: 30px;
+            outline: none;
           }
 
           & label {
             padding: 8px;
+          }
+
+          & .submit-field {
+            width: 100%;
+            margin-top: 45px;
+            display: flex;
+            justify-content: flex-end;
+
+            & .submitBtn {
+              box-shadow: none;
+              align-self: center;
+              margin-right: 10px;
+              background: $react-logo-color;
+              color: $react-bg-color;
+              font-size: 1.2rem;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      @media only screen and (max-width: 400px) {
+        & .dropdown {
+          margin-left: -160px;
+
+          & form {
+            width: 320px;
           }
         }
       }

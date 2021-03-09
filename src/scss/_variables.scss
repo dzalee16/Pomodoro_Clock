@@ -6,6 +6,11 @@ $blue-light: #282c34;
 $blue-middle: #20232a;
 $primary: #60dafb;
 
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Courgette&display=swap");
+
+$courgette: "Courgette", cursive;
+
 //content section colors
 $pomodoro: rgb(253, 98, 70);
 $pomodoro-field: rgb(204, 71, 48);

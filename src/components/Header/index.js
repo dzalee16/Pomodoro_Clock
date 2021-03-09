@@ -1,13 +1,9 @@
-import React, { useRef, useState, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/pomodoro.jpeg";
 import { SessionContext } from "../../context/session";
-import moment from "moment";
-import momentDurationFormat from "moment-duration-format";
 import "./style.scss";
-
-momentDurationFormat(moment);
 
 const Header = () => {
   const dropdownRef = useRef();
@@ -21,6 +17,7 @@ const Header = () => {
     setShortBreakLength,
     longBreakLength,
     setLongBreakLength,
+    setTime,
   } = useContext(SessionContext);
 
   useEffect(() => {
@@ -36,13 +33,15 @@ const Header = () => {
     };
   }, [setIsOpen, dropdownRef]);
 
-  // useEffect(() => {
-  //   console.log(isOpen);
-  // }, [isOpen]);
-
-  // useEffect(() => {
-  //   console.log(pomodoroLength);
-  // }, [pomodoroLength]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsOpen(false);
+    setTime({
+      pomodoroLength: pomodoroLength,
+      shortBreakLength: shortBreakLength,
+      longBreakLength: longBreakLength,
+    });
+  };
 
   return (
     <header>
@@ -53,14 +52,25 @@ const Header = () => {
           </Link>
         </Navbar.Brand>
         <Nav className="ml-auto" ref={dropdownRef}>
-          <button className="dropdown-btn" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            type="button"
+            className="dropdown-btn"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             Settings
           </button>
           {isOpen && (
             <div className="dropdown">
-              <form>
+              <form onSubmit={handleSubmit}>
+                <button
+                  className="isOpenFalse"
+                  onClick={() => setIsOpen(false)}
+                >
+                  X
+                </button>
                 <label>Pomodoro</label>
                 <input
+                  className="pomodoro-lenght"
                   type="number"
                   min="1"
                   step="1"
@@ -86,6 +96,11 @@ const Header = () => {
                   onChange={(e) => setLongBreakLength(Number(e.target.value))}
                   value={longBreakLength}
                 />
+                <div className="submit-field">
+                  <button type="submit" className="submitBtn">
+                    OK
+                  </button>
+                </div>
               </form>
             </div>
           )}

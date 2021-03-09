@@ -12,10 +12,9 @@ momentDurationFormat(moment);
 
 const Pomodoro = () => {
   //context
-  const { pomodoroLength, shortBreakLength, longBreakLength } = useContext(
-    SessionContext
-  );
+
   const { isOpen } = useContext(SessionContext);
+  const { time } = useContext(SessionContext);
 
   //reference
   const alertRef = useRef(null);
@@ -28,11 +27,12 @@ const Pomodoro = () => {
   };
 
   //states
-  const [timeLeft, setTimeLeft] = useState(formatTime(pomodoroLength));
+  const [timeLeft, setTimeLeft] = useState(formatTime(time.pomodoroLength));
   const [sessionField, setSessionField] = useState("pomodoro-container");
   const [timerId, setTimerId] = useState(null);
   const [sessionType, setSessionType] = useState("pomodoroSession");
   const [counter, setCounter] = useState(0);
+  const [id, setId] = useState("pomodoro");
 
   //change start - stop button
   const isStarted = timerId !== null;
@@ -55,13 +55,19 @@ const Pomodoro = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(sessionType);
-  // }, [sessionType]);
-
-  // useEffect(() => {
-  //   console.log(counter);
-  // }, [counter]);
+  useEffect(() => {
+    switch (id) {
+      case "pomodoro":
+        setTimeLeft(formatTime(time.pomodoroLength));
+        break;
+      case "short-break":
+        setTimeLeft(formatTime(time.shortBreakLength));
+        break;
+      case "long-break":
+        setTimeLeft(formatTime(time.longBreakLength));
+        break;
+    }
+  }, [id, time]);
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -72,18 +78,18 @@ const Pomodoro = () => {
         setCounter((prevState) => {
           const newCounter = prevState + 1;
           if (newCounter === 4) {
-            setTimeLeft(formatTime(longBreakLength));
+            setTimeLeft(formatTime(time.longBreakLength));
             setSessionField("long-break-container");
             setCounter(0);
           }
           return newCounter;
         });
         setSessionType("shortBreakSession");
-        setTimeLeft(formatTime(shortBreakLength));
+        setTimeLeft(formatTime(time.shortBreakLength));
         setSessionField("short-break-container");
       } else if (sessionType === "shortBreakSession") {
         setSessionType("pomodoroSession");
-        setTimeLeft(formatTime(pomodoroLength));
+        setTimeLeft(formatTime(time.pomodoroLength));
         setSessionField("pomodoro-container");
       }
     }
@@ -93,13 +99,16 @@ const Pomodoro = () => {
   const changesessionField = (e) => {
     if (e.target.id === "pomodoro") {
       setSessionField("pomodoro-container");
-      setTimeLeft(formatTime(pomodoroLength));
+      setTimeLeft(formatTime(time.pomodoroLength));
+      setId("pomodoro");
     } else if (e.target.id === "short-break") {
       setSessionField("short-break-container");
-      setTimeLeft(formatTime(shortBreakLength));
+      setTimeLeft(formatTime(time.shortBreakLength));
+      setId("short-break");
     } else if (e.target.id === "long-break") {
       setSessionField("long-break-container");
-      setTimeLeft(formatTime(longBreakLength));
+      setTimeLeft(formatTime(time.longBreakLength));
+      setId("long-break");
     }
   };
 

@@ -5,6 +5,18 @@
   position: relative;
   height: calc(100vh - 100px);
 
+  & h1 {
+    color: $white;
+    width: 100%;
+    background-color: $blue-heavy;
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  & a {
+    text-decoration: none;
+  }
+
   & .home-btn {
     width: 300px;
     margin-left: auto;
@@ -16,5 +28,16 @@
     color: $react-bg-color;
     font-size: 1.4rem;
     font-weight: bold;
+  }
+}
+
+@media only screen and(max-width: 350px) {
+  .home {
+    height: 100vh;
+
+    & .home-btn {
+      width: 180px;
+      font-size: 1rem;
+    }
   }
 }
