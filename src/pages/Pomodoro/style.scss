@@ -207,3 +207,31 @@ $theme-colors: (
     }
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .pomodoro-container {
+    margin-top: 100px;
+  }
+
+  .short-break-container {
+    margin-top: 100px;
+  }
+
+  .long-break-container {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  .pomodoro-container {
+    margin-top: 65px;
+  }
+
+  .short-break-container {
+    margin-top: 65px;
+  }
+
+  .long-break-container {
+    margin-top: 65px;
+  }
+}

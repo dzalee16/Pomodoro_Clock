@@ -31,13 +31,14 @@
   }
 }
 
-@media only screen and(max-width: 350px) {
+@media only screen and(max-width: 420px) {
   .home {
     height: 100vh;
 
     & .home-btn {
       width: 180px;
       font-size: 1rem;
+      margin-top: 230px;
     }
   }
 }
